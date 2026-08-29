@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Günlük Görev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- İlk giriş ekranı -->
+        <div id="welcome-screen" class="welcome-screen">
+            <div class="welcome-box">
+                <h1>Hoş Geldin! 👋</h1>
+                <p>Başlamak için adını yaz.</p>
+
+                <input
+                    type="text"
+                    id="name-input"
+                    placeholder="Adın..."
+                    maxlength="30"
+                >
+
+                <button id="save-name-btn">Kaydet</button>
+            </div>
+        </div>
+
+        <!-- Ana uygulama -->
+        <div id="main-app" class="main-app hidden">
+
+            <!-- Sol menü -->
+            <aside class="sidebar">
+                <div class="logo">
+                    📋 Görev Günlüğüm
+                </div>
+
+                <div class="profile-mini">
+                    <div class="profile-icon">👤</div>
+                    <span id="profile-name"></span>
+                </div>
+
+                <nav>
+                    <button class="menu-btn active" data-page="home">
+                        🏠 Ana Sayfa
+                    </button>
+
+                    <button class="menu-btn" data-page="diary">
+                        📖 Günlük
+                    </button>
+
+                    <button class="menu-btn" data-page="edit-tasks">
+                        ✏️ Görev Listesi Düzenle
+                    </button>
+
+                    <button class="menu-btn" data-page="tasks">
+                        ✅ Görev Listesi
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- İçerik -->
+            <main class="content">
+
+                <!-- Ana Sayfa -->
+                <section id="home-page" class="page">
+                    <h1>Merhaba, <span id="home-name"></span>! 👋</h1>
+                    <p>Bugün neler yapacağını birlikte takip edelim.</p>
+
+                    <div class="home-cards">
+                        <div class="home-card">
+                            <span>📖</span>
+                            <h3>Günlük</h3>
+                            <p>Düşüncelerini ve gününü yaz.</p>
+                        </div>
+
+                        <div class="home-card">
+                            <span>✅</span>
+                            <h3>Görevler</h3>
+                            <p>Yapman gereken görevleri takip et.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Günlük -->
+                <section id="diary-page" class="page hidden">
+                    <h1>📖 Günlük</h1>
+
+                    <div class="diary">
+                        <div class="diary-top">
+                            <button id="previous-page">← Önceki</button>
+                            <span id="diary-page-number">Sayfa 1</span>
+                            <button id="next-page">Sonraki →</button>
+                        </div>
+
+                        <textarea
+                            id="diary-text"
+                            placeholder="Bugün neler oldu? Buraya yazabilirsin..."
+                        ></textarea>
+
+                        <div class="diary-buttons">
+                            <button id="add-diary-page">＋ Yeni Sayfa</button>
+                            <button id="delete-diary-page">🗑 Sayfayı Sil</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Görev düzenleme -->
+                <section id="edit-tasks-page" class="page hidden">
+                    <h1>✏️ Görev Listesi Düzenle</h1>
+
+                    <div id="task-editor"></div>
+
+                    <button id="add-task-btn" class="add-task">
+                        ＋ Görev Ekle
+                    </button>
+
+                    <button id="save-tasks-btn" class="save-btn">
+                        💾 Kaydet
+                    </button>
+                </section>
+<section id="tasks-page" class="page hidden">
+    <h1>✅ Görev Listesi</h1>
+    <p>Görevlerini tamamla ve bugününü tamamla! 🚀</p>
+
+    <!-- İlerleme alanı -->
+    <div class="progress-card">
+        <div class="progress-top">
+            <div>
+                <h2>Bugünkü Görevler</h2>
+                <span id="progress-text">0 / 0 görev tamamlandı</span>
+            </div>
+
+            <div id="progress-percent">0%</div>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+
+        <div id="completion-message" class="completion-message hidden">
+            🎉 Harika! Tüm görevleri tamamladın!
+        </div>
+    </div>
+
+    <!-- Görevler -->
+    <div id="task-list"></div>
+
+    <p id="no-tasks" class="no-tasks hidden">
+        Henüz görev eklenmemiş.
+    </p>
+</section>
+               
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

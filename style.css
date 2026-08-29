@@ -1,0 +1,568 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main: #6366f1;
+    --main-dark: #4f46e5;
+    --background: #f5f7fb;
+    --card: #ffffff;
+    --text: #202332;
+    --muted: #7b8194;
+    --border: #e5e7ef;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   GİRİŞ EKRANI
+========================= */
+
+.welcome-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at top left, #818cf8, transparent 35%),
+        radial-gradient(circle at bottom right, #a78bfa, transparent 35%),
+        #4f46e5;
+    padding: 20px;
+}
+
+.welcome-box {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 45px;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+.welcome-box h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.welcome-box p {
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-size: 16px;
+}
+
+.welcome-box input {
+    width: 100%;
+    padding: 15px 17px;
+    border: 2px solid var(--border);
+    border-radius: 13px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.welcome-box input:focus {
+    border-color: var(--main);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.welcome-box button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 15px;
+    border: none;
+    border-radius: 13px;
+    background: var(--main);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.welcome-box button:hover {
+    background: var(--main-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   ANA UYGULAMA
+========================= */
+
+.main-app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================
+   SOL MENÜ
+========================= */
+
+.sidebar {
+    width: 270px;
+    min-height: 100vh;
+    background: #171a2b;
+    color: white;
+    padding: 22px 16px;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    padding: 10px 12px 25px;
+}
+
+.profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.profile-icon {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main);
+    border-radius: 12px;
+    font-size: 19px;
+}
+
+#profile-name {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.menu-btn {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #bfc3d5;
+    padding: 14px;
+    text-align: left;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    transform: translateX(3px);
+}
+
+.menu-btn.active {
+    background: var(--main);
+    color: white;
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.25);
+}
+
+/* =========================
+   İÇERİK
+========================= */
+
+.content {
+    flex: 1;
+    padding: 45px;
+    max-width: 1400px;
+}
+
+.page h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page > p {
+    color: var(--muted);
+}
+
+/* =========================
+   ANA SAYFA
+========================= */
+
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+    max-width: 750px;
+}
+
+.home-card {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 25px rgba(20, 25, 50, 0.05);
+    transition: 0.25s;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(20, 25, 50, 0.1);
+}
+
+.home-card span {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 14px;
+}
+
+.home-card h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.home-card p {
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* =========================
+   GÜNLÜK
+========================= */
+
+.diary {
+    max-width: 850px;
+    margin-top: 28px;
+    background: var(--card);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 25px rgba(20, 25, 50, 0.05);
+}
+
+.diary-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.diary-top button,
+.diary-buttons button {
+    border: 1px solid var(--border);
+    background: #f7f8fc;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.diary-top button:hover,
+.diary-buttons button:hover {
+    background: #eceef7;
+}
+
+#diary-page-number {
+    font-weight: bold;
+    color: var(--muted);
+}
+
+#diary-text {
+    width: 100%;
+    min-height: 430px;
+    resize: vertical;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.7;
+    outline: none;
+    background: #fffef8;
+    transition: 0.2s;
+}
+
+#diary-text:focus {
+    border-color: var(--main);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+.diary-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* =========================
+   GÖREV DÜZENLEME
+========================= */
+
+#task-editor {
+    max-width: 800px;
+    margin-top: 28px;
+}
+
+.task-edit-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.task-number {
+    min-width: 35px;
+    font-weight: bold;
+    color: var(--main);
+}
+
+.task-input {
+    flex: 1;
+    padding: 14px 15px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.task-input:focus {
+    border-color: var(--main);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+.delete-task {
+    border: none;
+    background: #fff0f0;
+    color: #dc2626;
+    padding: 11px 13px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.delete-task:hover {
+    background: #ffe0e0;
+}
+
+.add-task,
+.save-btn {
+    margin-top: 17px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-task {
+    background: #e9eaf5;
+    color: #45495c;
+}
+
+.add-task:hover {
+    background: #dddfee;
+}
+
+.save-btn {
+    background: var(--main);
+    color: white;
+    margin-left: 8px;
+}
+
+.save-btn:hover {
+    background: var(--main-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   GÖREV LİSTESİ
+========================= */
+
+#task-list {
+    max-width: 800px;
+    margin-top: 28px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--card);
+    padding: 17px;
+    margin-bottom: 11px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(20, 25, 50, 0.04);
+    transition: 0.2s;
+}
+
+.task-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 8px 22px rgba(20, 25, 50, 0.08);
+}
+
+.task-checkbox {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #b8bccb;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+    flex-shrink: 0;
+    color: #777d91;
+}
+
+.task-item.completed .task-checkbox {
+    background: var(--main);
+    color: white;
+    border-color: var(--main);
+}
+
+.task-item.completed .task-name {
+    text-decoration: line-through;
+    color: #9da1b0;
+}
+
+.task-name {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.no-tasks {
+    margin-top: 25px;
+    color: var(--muted);
+}
+
+/* =========================
+   MOBİL
+========================= */
+
+@media (max-width: 750px) {
+
+    .main-app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: static;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .content {
+        padding: 25px 18px;
+    }
+
+    .home-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-box {
+        width: 100%;
+        padding: 30px 22px;
+    }
+
+    .diary {
+        padding: 16px;
+    }
+
+    #diary-text {
+        min-height: 350px;
+    }
+}
+/* =========================
+   GÖREV İLERLEME
+========================= */
+
+.progress-card {
+    max-width: 800px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 20px rgba(20, 25, 50, 0.05);
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.progress-top h2 {
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+#progress-text {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#progress-percent {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--main);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 13px;
+    background: #e9eaf1;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 18px;
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--main);
+    border-radius: 20px;
+    transition: width 0.35s ease;
+}
+
+.completion-message {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #eefcf3;
+    color: #15803d;
+    font-weight: bold;
+    text-align: center;
+}
